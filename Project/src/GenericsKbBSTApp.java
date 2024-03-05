@@ -101,9 +101,11 @@ public class GenericsKbBSTApp {
         //find term in BST and update with new statement only if score is higher
         Entry entry = new Entry(term, null, null);
         if (tree.find(entry) != null){
-            BinaryTreeNode<Entry> node = tree.find(entry);
-            if (node.data.getScore() < newScore){
-                writeTextFile(statement, tree);
+            if (tree.find(entry).data.getScore() < newScore){
+                tree.find(entry).data.setStatement(statement);
+                tree.find(entry).data.setScore(newScore);
+                System.out.println("\nStatement for " + term + " has been updated\n");
+                writeTextFile(filePath, tree);
             }
             else{
                 System.out.println("\nDid not update as confidence score is less\n");
@@ -136,16 +138,16 @@ public class GenericsKbBSTApp {
     }
 
     private static void writeTextFile(String filePath, BinarySearchTree<Entry> bst) {
-        //try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
-            List<BinaryTreeNode<Entry>> list = bst.inOrderTraversal();
-            String line;
-            for (int i = bst.getSize()-1; i >= 0; i--){
-                line = list.get(i).toString();
-                System.out.println(line);
-                System.out.println(i);
-                //writer.write(line);
-                //writer.newLine();
+        try { 
+            BufferedWriter writer = new BufferedWriter(new FileWriter(filePath));
+            List<BinaryTreeNode<Entry>> list = bst.levelOrder();
+            for (int i = 0; i < bst.getSize(); i++){
+                writer.write(list.get(i).toString());
+                writer.newLine();
             }
+            writer.close();
+        } catch (IOException e) {
+            System.out.println("Could not write file, error occured");;
+        }
     }
-
 }

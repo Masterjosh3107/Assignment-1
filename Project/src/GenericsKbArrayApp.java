@@ -97,8 +97,8 @@ import java.io.*;
             Boolean contains = false;
             Boolean bCheck = false;
             for (int i = 0; i<items.length;i++){
-                if (items[i].contains(term)){
-                    String[] parts = items[i].split("\t");
+                String[] parts = items[i].split("\t");
+                if (parts[0].equals(term)){
                     Double oldScore = Double.parseDouble(parts[2]);
                     if (newScore > oldScore){
                         items[i] = parts[0] + "\t" + statement + "\t" + newScore;
@@ -109,7 +109,7 @@ import java.io.*;
                     }
                     contains = true;
                     break;
-                }   
+                } 
             }
             if (contains == false){
                 System.out.println("\nCould not find term in knowledge base\n");
@@ -126,6 +126,7 @@ import java.io.*;
                 writer.write(line);
                 writer.newLine();
             }
+            writer.close();
         } catch (IOException e) {
             System.out.println("Could not write file, error occured");;
         }
@@ -138,19 +139,18 @@ import java.io.*;
         //search through array to find term and print statement with score
         Boolean contains = false;
         for (String line : items){
-            if (line.contains(term)){
-                String[] parts = line.split("\t");
-                Double score = Double.parseDouble(parts[2]);
+            String[] parts = line.split("\t");
+            if (parts[0].equals(term)){
+                Double score = Double.parseDouble(parts[2]);       
                 System.out.print("\nStatement found: " + parts[1] + " (Confidence score: ");
                 System.out.printf("%.2f", score);
                 System.out.print(")\n\n");
                 contains = true;
                 break;
-            }
-            
+            }           
         }
         if (contains == false){
-            System.out.println("Could not find term in knowledge base");
+            System.out.println("\nCould not find term in knowledge base\n");
         }
     }
 
@@ -160,20 +160,18 @@ import java.io.*;
         String term = scanner.nextLine();
         System.out.print("Enter the statement to search for: ");
         String statement = scanner.nextLine();
-       
         //search through array to find term and sentence then print statement with score
         Boolean contains = false;
         for (String line : items){
-            if (line.contains(term) && line.contains(statement)){
-                String[] parts = line.split("\t");
+            String[] parts = line.split("\t");
+            if (parts[0].equals(term) && parts[1].equals(statement)){
                 Double score = Double.parseDouble(parts[2]);
                 System.out.print("\nThe statement was found and has a confidence score of ");
                 System.out.printf("%.2f", score);
                 System.out.print(".\n\n");;
                 contains = true;
                 break;
-            }
-            
+            }    
         }
         if (contains == false){
             System.out.println("\nCould not find term or sentence in knowledge base\n");

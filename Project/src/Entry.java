@@ -13,8 +13,16 @@ public class Entry implements Comparable<Entry>{
         return score;
     }
 
+    public void setScore(Double score){
+        this.score = score;
+    }
+
     public String getStatement() {
         return statement;
+    }
+
+    public void setStatement(String statement){
+        this.statement = statement;
     }
 
     public String getTerm() {

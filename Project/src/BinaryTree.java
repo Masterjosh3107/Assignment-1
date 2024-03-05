@@ -2,6 +2,9 @@
 // 26 March 2017
 // Hussein Suleman
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BinaryTree<dataType>
 {
    BinaryTreeNode<dataType> root;
@@ -80,6 +83,30 @@ public class BinaryTree<dataType>
          visit (node);
          inOrder (node.getRight ());
       }   
+   }
+
+   //Custom levelOrder
+   public void levelOrder (List<BinaryTreeNode<dataType>> nodeList)
+   {
+      if (root == null)
+         return;
+      BTQueue<dataType> q = new BTQueue<dataType> ();
+      q.enQueue (root);
+      BinaryTreeNode<dataType> node;
+      while ((node = q.getNext ()) != null)
+      {
+         nodeList.add(node);
+         if (node.getLeft () != null)
+            q.enQueue (node.getLeft ());
+         if (node.getRight () != null)
+            q.enQueue (node.getRight ());
+      }
+   }
+
+   public List<BinaryTreeNode<dataType>> levelOrder(){
+      List<BinaryTreeNode<dataType>> nodeList = new ArrayList<>();
+      levelOrder(nodeList);
+      return nodeList;
    }
 
 }
