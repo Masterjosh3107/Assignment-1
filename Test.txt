@@ -1,2 +1,0 @@
-test	done	3.0
-done	more	1.0
