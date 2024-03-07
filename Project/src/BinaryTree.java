@@ -35,10 +35,19 @@ public class BinaryTree<dataType>
          return 1 + Math.max (getHeight (node.getLeft ()), getHeight (node.getRight ()));
    }
    
+   
+   /** 
+    * @return int
+    */
    public int getSize ()
    {
       return getSize (root);
    }   
+   
+   /** 
+    * @param node
+    * @return int
+    */
    public int getSize ( BinaryTreeNode<dataType> node )
    {
       if (node == null)
@@ -47,6 +56,10 @@ public class BinaryTree<dataType>
          return 1 + getSize (node.getLeft ()) + getSize (node.getRight ());
    }
    
+   
+   /** 
+    * @param node
+    */
    public void visit ( BinaryTreeNode<dataType> node )
    {
       System.out.println (node.data);
@@ -56,6 +69,10 @@ public class BinaryTree<dataType>
    {
       preOrder (root);
    }
+   
+   /** 
+    * @param node
+    */
    public void preOrder ( BinaryTreeNode<dataType> node )
    {
       if (node != null)
@@ -70,6 +87,10 @@ public class BinaryTree<dataType>
    {
       postOrder (root);
    }
+   
+   /** 
+    * @param node
+    */
    public void postOrder ( BinaryTreeNode<dataType> node )
    {
       if (node != null)
@@ -84,6 +105,10 @@ public class BinaryTree<dataType>
    {
       inOrder (root);
    }
+   
+   /** 
+    * @param node
+    */
    public void inOrder ( BinaryTreeNode<dataType> node )
    {
       if (node != null)
@@ -94,6 +119,10 @@ public class BinaryTree<dataType>
       }   
    }
 
+   
+   /** 
+    * @param nodeList
+    */
    //Custom levelOrder
    public void levelOrder (List<BinaryTreeNode<dataType>> nodeList)
    {
@@ -112,6 +141,10 @@ public class BinaryTree<dataType>
       }
    }
 
+   
+   /** 
+    * @return List<BinaryTreeNode<dataType>>
+    */
    public List<BinaryTreeNode<dataType>> levelOrder(){
       List<BinaryTreeNode<dataType>> nodeList = new ArrayList<>();
       levelOrder(nodeList);

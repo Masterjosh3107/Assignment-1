@@ -40,6 +40,11 @@ public class BinarySearchTree<dataType extends Comparable<? super dataType>> ext
       }
    }
    
+   
+   /** 
+    * @param d
+    * @return BinaryTreeNode<dataType>
+    */
    public BinaryTreeNode<dataType> find ( dataType d )
    {
       if (root == null)
@@ -47,6 +52,12 @@ public class BinarySearchTree<dataType extends Comparable<? super dataType>> ext
       else
          return find (d, root);
    }
+   
+   /** 
+    * @param d
+    * @param node
+    * @return BinaryTreeNode<dataType>
+    */
    public BinaryTreeNode<dataType> find ( dataType d, BinaryTreeNode<dataType> node )
    {
       if (d.compareTo (node.data) == 0) 
@@ -57,10 +68,20 @@ public class BinarySearchTree<dataType extends Comparable<? super dataType>> ext
          return (node.right == null) ? null : find (d, node.right);
    }
    
+   
+   /** 
+    * @param d
+    */
    public void delete ( dataType d )
    {
       root = delete (d, root);
    }   
+   
+   /** 
+    * @param d
+    * @param node
+    * @return BinaryTreeNode<dataType>
+    */
    public BinaryTreeNode<dataType> delete ( dataType d, BinaryTreeNode<dataType> node )
    {
       if (node == null) return null;
@@ -81,6 +102,11 @@ public class BinarySearchTree<dataType extends Comparable<? super dataType>> ext
       return node;
    }
    
+   
+   /** 
+    * @param node
+    * @return BinaryTreeNode<dataType>
+    */
    public BinaryTreeNode<dataType> findMin ( BinaryTreeNode<dataType> node )
    {
       if (node != null)
@@ -89,6 +115,11 @@ public class BinarySearchTree<dataType extends Comparable<? super dataType>> ext
       return node;
    }
 
+   
+   /** 
+    * @param node
+    * @return BinaryTreeNode<dataType>
+    */
    public BinaryTreeNode<dataType> removeMin ( BinaryTreeNode<dataType> node )
    {
       if (node == null)
@@ -102,6 +133,10 @@ public class BinarySearchTree<dataType extends Comparable<? super dataType>> ext
          return node.right;
    }
    
+   
+   /** 
+    * @return List<BinaryTreeNode<dataType>>
+    */
    // Custom made function
    public List<BinaryTreeNode<dataType>> inOrderTraversal() {
       List<BinaryTreeNode<dataType>> nodeList = new ArrayList<>();
@@ -109,6 +144,10 @@ public class BinarySearchTree<dataType extends Comparable<? super dataType>> ext
       return nodeList;
   }
 
+   
+   /** 
+    * @param nodeList
+    */
    // Recursive helper function for in-order traversal
    private void inOrderTraversal(BinaryTreeNode<dataType> node, List<BinaryTreeNode<dataType>> nodeList) {
          if (node != null) {
