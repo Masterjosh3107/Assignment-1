@@ -14,10 +14,19 @@ public class BinaryTree<dataType>
       root = null;
    }
    
+   
+   /** 
+    * @return int
+    */
    public int getHeight ()
    {
       return getHeight (root);
    }   
+   
+   /** 
+    * @param node
+    * @return int
+    */
    public int getHeight ( BinaryTreeNode<dataType> node )
    {
       if (node == null)

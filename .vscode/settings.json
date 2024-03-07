@@ -1,5 +1,8 @@
 {
     "git.enabled": true,
     "git.statusLimit": 0,
-    "git.terminalAuthentication": false
+    "git.terminalAuthentication": false,
+    "javadoc-tools.generateJavadoc.targetFolder": "",
+    "javadoc-tools.generateJavadoc.workspaceSourceFolder": "javadoc",
+    "javadoc-tools.generateJavadoc.runMode": "-public"
 }

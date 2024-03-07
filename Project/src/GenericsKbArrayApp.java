@@ -11,6 +11,10 @@ import java.io.*;
     private String[] items;
     private int choice;
     private String filePath;
+    
+    /** 
+     * @param args
+     */
     public static void main(String[] args) {
         GenericsKbArrayApp App = new GenericsKbArrayApp();
         App.run();
@@ -120,6 +124,11 @@ import java.io.*;
             }
            
     }
+    
+    /** 
+     * @param filePath
+     * @param dataArray
+     */
     private static void writeTextFile(String filePath, String[] dataArray) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             for (String line : dataArray) {

@@ -11,6 +11,10 @@ public class GenericsKbBSTApp {
     private Scanner scanner = new Scanner(System.in);
     private BinarySearchTree<Entry> tree = new BinarySearchTree<>();
     private String filePath;
+    
+    /** 
+     * @param args
+     */
     public static void main(String[] args) {
         GenericsKbBSTApp App = new GenericsKbBSTApp();
         App.run();
@@ -137,6 +141,11 @@ public class GenericsKbBSTApp {
         }
     }
 
+    
+    /** 
+     * @param filePath
+     * @param bst
+     */
     private static void writeTextFile(String filePath, BinarySearchTree<Entry> bst) {
         try { 
             BufferedWriter writer = new BufferedWriter(new FileWriter(filePath));

@@ -6,6 +6,10 @@ import java.util.*;
 
 public class BinarySearchTree<dataType extends Comparable<? super dataType>> extends BinaryTree<dataType>
 {
+   
+   /** 
+    * @param d
+    */
    public void insert ( dataType d )
    {
       if (root == null)
@@ -13,6 +17,11 @@ public class BinarySearchTree<dataType extends Comparable<? super dataType>> ext
       else
          insert (d, root);
    }
+   
+   /** 
+    * @param d
+    * @param node
+    */
    public void insert ( dataType d, BinaryTreeNode<dataType> node )
    {
       if (d.compareTo (node.data) <= 0)

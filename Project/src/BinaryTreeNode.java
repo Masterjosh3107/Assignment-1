@@ -18,6 +18,10 @@ public class BinaryTreeNode<dataType>
    BinaryTreeNode<dataType> getLeft () { return left; }
    BinaryTreeNode<dataType> getRight () { return right; }
 
+   
+   /** 
+    * @return String
+    */
    //custom toString
    public String toString(){
       return data.toString();
