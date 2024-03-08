@@ -105,7 +105,7 @@ public class GenericsKbBSTApp {
         //find term in BST and update with new statement only if score is higher
         Entry entry = new Entry(term, null, null);
         if (tree.find(entry) != null){
-            if (tree.find(entry).data.getScore() < newScore){
+            if (tree.find(entry).data.getScore() <= newScore){
                 tree.find(entry).data.setStatement(statement);
                 tree.find(entry).data.setScore(newScore);
                 System.out.println("\nStatement for " + term + " has been updated\n");

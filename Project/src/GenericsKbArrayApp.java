@@ -104,7 +104,7 @@ import java.io.*;
                 String[] parts = items[i].split("\t");
                 if (parts[0].equals(term)){
                     Double oldScore = Double.parseDouble(parts[2]);
-                    if (newScore > oldScore){
+                    if (newScore >= oldScore){
                         items[i] = parts[0] + "\t" + statement + "\t" + newScore;
                     }
                     else{
